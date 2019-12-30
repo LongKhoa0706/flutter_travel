@@ -14,10 +14,13 @@ class _DashBoardState extends State<DashBoard> {
   int currentindex = 0;
   List<Widget> listScreen = [
     Travel(),
-    Profile(),
-    Hotel(),
-    Chat(),
     Flight(),
+    Chat(),
+    Hotel(),
+    Profile(),
+
+
+
   ];
 
   @override
@@ -35,36 +38,34 @@ class _DashBoardState extends State<DashBoard> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.airplanemode_active,color: Color(0xff8B8A8D),),
-            title: Text("Travel",style: TextStyle(color: Color(0xff8B8A8D),),),
+            title: Text("Flight",style: TextStyle(color: Color(0xff8B8A8D),),),
             activeIcon: Icon(Icons.airplanemode_active,color: Color(0xffFD5739),),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.chat_bubble,color: Color(0xff8B8A8D),),
-            title: Text("Travel",style: TextStyle(color: Color(0xff8B8A8D),),),
+            title: Text("Chatbox",style: TextStyle(color: Color(0xff8B8A8D),),),
             activeIcon: Icon(Icons.chat_bubble,color: Color(0xffFD5739),),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.hotel,color: Color(0xff8B8A8D),),
-            title: Text("Travel",style: TextStyle(color: Color(0xff8B8A8D),),),
+            title: Text("Hotels",style: TextStyle(color: Color(0xff8B8A8D),),),
             activeIcon: Icon(Icons.hotel,color: Color(0xffFD5739),),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person,color: Color(0xff8B8A8D),),
-            title: Text("Travel",style: TextStyle(color: Color(0xff8B8A8D),),),
+            title: Text("Profile",style: TextStyle(color: Color(0xff8B8A8D),),),
             activeIcon: Icon(Icons.person,color: Color(0xffFD5739),),
           ),
         ],
-
-        onTap: (currentindex){
+        onTap: (index){
           setState(() {
-            this.currentindex = currentindex;
+            this.currentindex = index;
           },);
         },
       ),
       body: IndexedStack(
         index: currentindex,
-        children:
-        listScreen,
+        children: listScreen,
       ),
     );
   }
